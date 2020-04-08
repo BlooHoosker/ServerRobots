@@ -50,32 +50,40 @@ public class ServerThread extends Thread {
     private void ErrorStates(int state, PrintWriter serverOutWriter){
         if (state == 1) {
             // Syntax error
-            serverOutWriter.println(SERVER_SYNTAX_ERROR);
+            serverOutWriter.write(SERVER_SYNTAX_ERROR);
+            System.out.println("SERVER_SYNTAX_ERROR");
         } else if (state == 2) {
             // Timeout, connection terminated
             System.out.println("Timeout");
         } else if (state == 3) {
             // Recharging messed up
-            serverOutWriter.println(SERVER_LOGIC_ERROR);
+            serverOutWriter.write(SERVER_LOGIC_ERROR);
+            System.out.println("SERVER_LOGIC_ERROR");
         } else {
             // Login failed one one way or another
-            serverOutWriter.println(SERVER_LOGIN_FAILED);
+            serverOutWriter.write(SERVER_LOGIN_FAILED);
+            System.out.println("SERVER_LOGIN_FAILED");
         }
+        serverOutWriter.flush();
     }
 
     // Sends move message to client based on which action its supposed to do
     private void MoveStates(int state, PrintWriter serverOutWriter){
         if (state == 1) {
-            serverOutWriter.println(SERVER_TURN_RIGHT);
+            serverOutWriter.write(SERVER_TURN_RIGHT);
+            System.out.println("SERVER_TURN_RIGHT");
         } else if (state == -1){
-            serverOutWriter.println(SERVER_TURN_LEFT);
+            serverOutWriter.write(SERVER_TURN_LEFT);
+            System.out.println("SERVER_TURN_LEFT");
         } else{
-            serverOutWriter.println(SERVER_MOVE);
+            serverOutWriter.write(SERVER_MOVE);
+            System.out.println("SERVER_MOVE");
         }
+        serverOutWriter.flush();
     }
 
     // Returns verification code generated from clients username
-    private short GetHash(String username){
+    private int GetHash(String username){
         // Uživatelské jméno: Mnau!
         // ASCII reprezentace: 77 110 97 117 33
         // Výsledný hash: ((77 + 110 + 97 + 117 + 33) * 1000) % 65536 = 40784
@@ -86,13 +94,14 @@ public class ServerThread extends Thread {
         }
 
         // Gets sum of char Ascii decimal values
+        System.out.println();
         int usernameAsciiSum = 0;
-        for (int i = 0; i < username.length() - 4; i++){
+        for (int i = 0; i < username.length(); i++){
             usernameAsciiSum += username.charAt(i);
         }
 
         int hash = (usernameAsciiSum * 1000) % 65536;
-        return (short) hash;
+        return hash;
     }
 
     // Returns command as string without \a\b
@@ -121,6 +130,10 @@ public class ServerThread extends Thread {
             }
             first = scanner.nextInt();
             second = scanner.nextInt();
+            scanner.useDelimiter("");
+            if (scanner.hasNext()){
+                return new Pair<>(position, 1);
+            }
         // If format doesnt match it will catch it as an exception
         } catch (InputMismatchException e) {
             return new Pair<>(position, 1);
@@ -166,6 +179,7 @@ public class ServerThread extends Thread {
     private Pair<String, Integer> GetCommand(BufferedReader serverInReader, int length) {
         while (true){
             Pair<String, Integer> commandStat = CommandFromBuffer(serverInReader,length);
+            System.out.println(commandStat.getKey());
             if (commandStat.getKey().equals(CLIENT_RECHARGING)) {
                 int state = Recharging(serverInReader);
                 if (state != 0){
@@ -223,7 +237,8 @@ public class ServerThread extends Thread {
 
             // Vysledny kod: (40784 + 54621) % 65536 = 29869
             code = (hash + SERVER_KEY) % 65536;
-            serverOutWriter.println(code + ENDLN);
+            serverOutWriter.write(code + ENDLN);
+            serverOutWriter.flush();
 
             // Gets Confirmation from client
             commandState = GetCommand(serverInReader, CLIENT_NORMAL);
@@ -232,7 +247,7 @@ public class ServerThread extends Thread {
             }
 
             command = GetMessage(commandState.getKey());
-            // Tries to parse string to short int
+            // Tries to parse string to int
             try{
                 clientCode = Integer.parseInt(command);
                 if (command.length() > 5 || clientCode >= 65536 ) {
@@ -302,31 +317,22 @@ public class ServerThread extends Thread {
             // Client tries to log to the server ============================================================================================================================================================================================================
             int state = Login(serverInReader, serverOutWriter);
             if (state != 0) {
-                if (state == 1) {
-                    // Syntax error
-                    serverOutWriter.println(SERVER_SYNTAX_ERROR);
-                } else if (state == 2) {
-                    // Timeout, connection terminated
-                    System.out.println("Timeout");
-                } else if (state == 3) {
-                    // Recharging messed up
-                    serverOutWriter.println(SERVER_LOGIC_ERROR);
-                } else {
-                    // Login failed one one way or another
-                    serverOutWriter.println(SERVER_LOGIN_FAILED);
-                }
+                ErrorStates(state,serverOutWriter);
                 socket.close();
                 return;
             }
-            serverOutWriter.println(SERVER_OK);
+            serverOutWriter.write(SERVER_OK);
+            serverOutWriter.flush();
 
             // Setup NavAI ============================================================================================================================================================================================================
             boolean navSet = false;
             while(true){
                 // First two moves to determine direction and position
-                serverOutWriter.println(SERVER_MOVE);
+                serverOutWriter.write(SERVER_MOVE);
+                serverOutWriter.flush();
 
                 position = ReceiveCoordinates(serverInReader);
+                System.out.println("Position: " + position.getKey().getKey()+ " " + position.getKey().getValue());
                 if (position.getValue() != 0){
                     ErrorStates(position.getValue(), serverOutWriter);
                     socket.close();
@@ -337,6 +343,8 @@ public class ServerThread extends Thread {
                 if (!navSet){
                     navSet = true;
                     positionOrigin = position;
+                    continue;
+                } else if (position.getKey().getKey().equals(positionOrigin.getKey().getKey()) && position.getKey().getValue().equals(positionOrigin.getKey().getValue())){
                     continue;
                 }
                 break;
@@ -355,23 +363,16 @@ public class ServerThread extends Thread {
                     break;
                 }
 
-                // System.out.println("Move: " + move);
                 // Sending command based on next command generated
                 MoveStates(move, serverOutWriter);
                 // Waiting for new coordinates
                 position = ReceiveCoordinates(serverInReader);
+                System.out.println("Position: " + position.getKey().getKey()+ " " + position.getKey().getValue());
                 if (position.getValue() != 0) {
                     ErrorStates(position.getValue(), serverOutWriter);
                     socket.close();
                     return;
                 }
-
-                try {
-                    Thread.sleep(200);
-                } catch (InterruptedException e){
-
-                }
-
             }
             // Search loop ============================================================================================================================================================================================================
             while(true) {
@@ -379,7 +380,9 @@ public class ServerThread extends Thread {
                 move = navAI.Search(position.getKey());
                 // If it arrived to next tile then tries to pick up message
                 if (move == 0) {
-                    serverOutWriter.println(SERVER_PICK_UP);
+                    serverOutWriter.write(SERVER_PICK_UP);
+                    serverOutWriter.flush();
+                    System.out.println("SERVER_PICK_UP");
                     // Gets the message
                     commandState = GetCommand(serverInReader, CLIENT_MESSAGE);
                     if (commandState.getValue() != 0){
@@ -396,27 +399,26 @@ public class ServerThread extends Thread {
                     }
                 }
 
-                //System.out.println("Move: " + move);
+                if (move == 3){
+                    break;
+                }
+
                 // Sending command based on next command generated
                 MoveStates(move, serverOutWriter);
                 // Waiting for new coordinates
                 position = ReceiveCoordinates(serverInReader);
+                System.out.println("Position: " + position.getKey().getKey()+ " " + position.getKey().getValue());
                 if (position.getValue() != 0) {
                     ErrorStates(position.getValue(), serverOutWriter);
                     socket.close();
                     return;
                 }
-                /*
-                try {
-                    Thread.sleep(100);
-                } catch (InterruptedException e){
 
-                }
-                /*/
             }
 
             System.out.println("====================================================================");
-            serverOutWriter.println(SERVER_LOGOUT);
+            serverOutWriter.write(SERVER_LOGOUT);
+            serverOutWriter.flush();
             socket.close();
         } catch (IOException e){
             System.out.println("ServerThread IOException error");

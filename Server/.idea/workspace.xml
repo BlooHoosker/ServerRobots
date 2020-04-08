@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="01ff71de-cfe2-4b67-8ba3-aaf80095789f" name="Default Changelist" comment="" />
+    <list default="true" id="01ff71de-cfe2-4b67-8ba3-aaf80095789f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Server/com/company/ServerThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Server/com/company/ServerThread.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/ServerThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/ServerThread.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,13 +21,18 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="ProjectId" id="1a53jnZMgWo5WYuAeW0242yyI83" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -58,6 +69,7 @@
       <workItem from="1586111304283" duration="23740000" />
       <workItem from="1586199583476" duration="16546000" />
       <workItem from="1586372932119" duration="11744000" />
+      <workItem from="1586385637679" duration="4343000" />
     </task>
     <servers />
   </component>
@@ -69,42 +81,42 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="739" y="261" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1586024672831" />
-    <state width="914" height="264" key="GridCell.Tab.0.bottom" timestamp="1586384713364">
+    <state width="914" height="256" key="GridCell.Tab.0.bottom" timestamp="1586389985600">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="914" height="264" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1586384713364" />
-    <state width="914" height="264" key="GridCell.Tab.0.center" timestamp="1586384713364">
+    <state width="914" height="256" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1586389985600" />
+    <state width="914" height="256" key="GridCell.Tab.0.center" timestamp="1586389985600">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="914" height="264" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1586384713364" />
-    <state width="914" height="264" key="GridCell.Tab.0.left" timestamp="1586384713364">
+    <state width="914" height="256" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1586389985600" />
+    <state width="914" height="256" key="GridCell.Tab.0.left" timestamp="1586389985599">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="914" height="264" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1586384713364" />
-    <state width="914" height="264" key="GridCell.Tab.0.right" timestamp="1586384713364">
+    <state width="914" height="256" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1586389985599" />
+    <state width="914" height="256" key="GridCell.Tab.0.right" timestamp="1586389985600">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="914" height="264" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1586384713364" />
-    <state width="914" height="264" key="GridCell.Tab.1.bottom" timestamp="1586384713364">
+    <state width="914" height="256" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1586389985600" />
+    <state width="914" height="256" key="GridCell.Tab.1.bottom" timestamp="1586389985600">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="914" height="264" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1586384713364" />
-    <state width="914" height="264" key="GridCell.Tab.1.center" timestamp="1586384713364">
+    <state width="914" height="256" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1586389985600" />
+    <state width="914" height="256" key="GridCell.Tab.1.center" timestamp="1586389985600">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="914" height="264" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1586384713364" />
-    <state width="914" height="264" key="GridCell.Tab.1.left" timestamp="1586384713364">
+    <state width="914" height="256" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1586389985600" />
+    <state width="914" height="256" key="GridCell.Tab.1.left" timestamp="1586389985600">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="914" height="264" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1586384713364" />
-    <state width="914" height="264" key="GridCell.Tab.1.right" timestamp="1586384713364">
+    <state width="914" height="256" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1586389985600" />
+    <state width="914" height="256" key="GridCell.Tab.1.right" timestamp="1586389985600">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="914" height="264" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1586384713364" />
-    <state x="656" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1586014281944">
+    <state width="914" height="256" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1586389985600" />
+    <state x="1136" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1586385637247">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="656" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1586014281944" />
+    <state x="1136" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1586385637247" />
     <state x="609" y="135" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1586202244434">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -117,5 +129,27 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1586209905523" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/com/company/ServerThread.java</url>
+          <line>85</line>
+          <properties class="com.company.ServerThread" method="GetHash">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/com/company/ServerThread.java</url>
+          <line>214</line>
+          <properties class="com.company.ServerThread" method="Login">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
