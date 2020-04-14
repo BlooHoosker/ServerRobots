@@ -2,6 +2,14 @@ package com.company;
 
 public class Direction {
     private int dir;
+
+    /* Simple class that handles direction of the robot
+    0 means up
+    90 means down
+    45 means right
+    135 means left
+     */
+
     public Direction(int direction){
         this.dir = direction;
     }
@@ -20,7 +28,7 @@ public class Direction {
         return direction;
     }
 
-    public int WhichTurn(int target){
+    public int WhichAction(int target){
         if (TurnLeft(dir) == target){
             dir = TurnLeft(dir);
             return -1;

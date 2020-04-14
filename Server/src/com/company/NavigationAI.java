@@ -92,10 +92,10 @@ public class NavigationAI {
         int state;
         if (reachedX){
             // Generates turn command for Y direction after we reached X
-            state = direction.WhichTurn(GetDirection(currentPosition, directionY).GetDirection());
+            state = direction.WhichAction(GetDirection(currentPosition, directionY).GetDirection());
         } else {
             // Generates turn command if we didnt reach same X yet
-            state = direction.WhichTurn(GetDirection(currentPosition, directionX).GetDirection());
+            state = direction.WhichAction(GetDirection(currentPosition, directionX).GetDirection());
         }
 
         return state;

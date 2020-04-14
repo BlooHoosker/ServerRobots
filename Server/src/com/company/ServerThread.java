@@ -54,15 +54,15 @@ public class ServerThread extends Thread {
             System.out.println("SERVER_SYNTAX_ERROR");
         } else if (state == 2) {
             // Timeout, connection terminated
-            System.out.println("Timeout");
+            //System.out.println("Timeout");
         } else if (state == 3) {
             // Recharging messed up
             serverOutWriter.write(SERVER_LOGIC_ERROR);
-            System.out.println("SERVER_LOGIC_ERROR");
+            //System.out.println("SERVER_LOGIC_ERROR");
         } else {
             // Login failed one one way or another
             serverOutWriter.write(SERVER_LOGIN_FAILED);
-            System.out.println("SERVER_LOGIN_FAILED");
+            //System.out.println("SERVER_LOGIN_FAILED");
         }
         serverOutWriter.flush();
     }
@@ -71,13 +71,13 @@ public class ServerThread extends Thread {
     private void MoveStates(int state, PrintWriter serverOutWriter){
         if (state == 1) {
             serverOutWriter.write(SERVER_TURN_RIGHT);
-            System.out.println("SERVER_TURN_RIGHT");
+            //System.out.println("SERVER_TURN_RIGHT");
         } else if (state == -1){
             serverOutWriter.write(SERVER_TURN_LEFT);
-            System.out.println("SERVER_TURN_LEFT");
+            //System.out.println("SERVER_TURN_LEFT");
         } else{
             serverOutWriter.write(SERVER_MOVE);
-            System.out.println("SERVER_MOVE");
+            //System.out.println("SERVER_MOVE");
         }
         serverOutWriter.flush();
     }
@@ -94,7 +94,6 @@ public class ServerThread extends Thread {
         }
 
         // Gets sum of char Ascii decimal values
-        System.out.println();
         int usernameAsciiSum = 0;
         for (int i = 0; i < username.length(); i++){
             usernameAsciiSum += username.charAt(i);
@@ -146,7 +145,8 @@ public class ServerThread extends Thread {
         boolean bell = false;
         char charRead;
         try{
-            for(int i = 1; i <= length; i++){
+            int i = 0;
+            for(i = 1; i <= length; i++){
                 charRead = (char)serverInReader.read();
                 response.append(charRead);
                 // checks if the char is \a if yes sets flag
@@ -162,6 +162,13 @@ public class ServerThread extends Thread {
                 }
                 // Optimisation, if the last two chars arent \a\b then returns syntax error
                 if ((i == length - 1 && charRead != '\u0007') || (i == length && charRead != '\b') ){
+                    System.out.println(response.toString());
+                    for (int p = 0; p < response.toString().length(); p++){
+                        int a =  response.toString().charAt(p);
+                        System.out.print(a +" ");
+                    }
+                    System.out.println();
+                    System.out.println("Opti Fail ===============================================================");
                     break;
                 }
             }
@@ -172,6 +179,7 @@ public class ServerThread extends Thread {
             System.out.println("CommandToBuffer IO exception");
             return new Pair<>("", -1);
         }
+
         return new Pair<>("", 1);
     }
 
@@ -179,7 +187,6 @@ public class ServerThread extends Thread {
     private Pair<String, Integer> GetCommand(BufferedReader serverInReader, int length) {
         while (true){
             Pair<String, Integer> commandStat = CommandFromBuffer(serverInReader,length);
-            System.out.println(commandStat.getKey());
             if (commandStat.getKey().equals(CLIENT_RECHARGING)) {
                 int state = Recharging(serverInReader);
                 if (state != 0){
@@ -274,14 +281,16 @@ public class ServerThread extends Thread {
     private int Recharging(BufferedReader serverInReader){
 
         Pair<String, Integer> CommandState;
-        System.out.println("RECHARGING");
+        //System.out.println("RECHARGING");
 
         try{
             // Setting recharging timeout
             this.socket.setSoTimeout(1000*TIMEOUT_RECHARGING);
 
             // Waits for FULLPOWER signal
-            CommandState = GetCommand(serverInReader, CLIENT_NORMAL);
+
+            //CommandState = GetCommand(serverInReader, CLIENT_NORMAL);
+            CommandState = CommandFromBuffer(serverInReader, CLIENT_NORMAL);
             if(CommandState.getValue() != 0) {
                 return CommandState.getValue();
             }
@@ -295,7 +304,7 @@ public class ServerThread extends Thread {
             System.out.println("Recharging socket exception");
             return -1;
         }
-        System.out.println("FULLPOWER");
+        //System.out.println("FULLPOWER");
         return 0;
 
     }
@@ -332,7 +341,7 @@ public class ServerThread extends Thread {
                 serverOutWriter.flush();
 
                 position = ReceiveCoordinates(serverInReader);
-                System.out.println("Position: " + position.getKey().getKey()+ " " + position.getKey().getValue());
+                //System.out.println("Position: " + position.getKey().getKey()+ " " + position.getKey().getValue());
                 if (position.getValue() != 0){
                     ErrorStates(position.getValue(), serverOutWriter);
                     socket.close();
@@ -367,7 +376,7 @@ public class ServerThread extends Thread {
                 MoveStates(move, serverOutWriter);
                 // Waiting for new coordinates
                 position = ReceiveCoordinates(serverInReader);
-                System.out.println("Position: " + position.getKey().getKey()+ " " + position.getKey().getValue());
+                //System.out.println("Position: " + position.getKey().getKey()+ " " + position.getKey().getValue());
                 if (position.getValue() != 0) {
                     ErrorStates(position.getValue(), serverOutWriter);
                     socket.close();
@@ -382,7 +391,7 @@ public class ServerThread extends Thread {
                 if (move == 0) {
                     serverOutWriter.write(SERVER_PICK_UP);
                     serverOutWriter.flush();
-                    System.out.println("SERVER_PICK_UP");
+                    //System.out.println("SERVER_PICK_UP");
                     // Gets the message
                     commandState = GetCommand(serverInReader, CLIENT_MESSAGE);
                     if (commandState.getValue() != 0){
@@ -407,7 +416,7 @@ public class ServerThread extends Thread {
                 MoveStates(move, serverOutWriter);
                 // Waiting for new coordinates
                 position = ReceiveCoordinates(serverInReader);
-                System.out.println("Position: " + position.getKey().getKey()+ " " + position.getKey().getValue());
+                //System.out.println("Position: " + position.getKey().getKey()+ " " + position.getKey().getValue());
                 if (position.getValue() != 0) {
                     ErrorStates(position.getValue(), serverOutWriter);
                     socket.close();
