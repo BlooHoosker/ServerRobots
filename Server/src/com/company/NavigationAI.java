@@ -1,10 +1,6 @@
 package com.company;
 
-import javafx.util.Pair;
-
-import java.util.ArrayDeque;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Queue;
 
 public class NavigationAI {
