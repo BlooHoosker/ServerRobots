@@ -302,7 +302,7 @@ public class ServerThread extends Thread {
     }
 
     // Main servers function
-    public void serverStart(){
+    public void run(){
         try(InputStream serverIn = socket.getInputStream();
             BufferedReader serverInReader = new BufferedReader(new InputStreamReader(serverIn));
             OutputStream serverOut = socket.getOutputStream();

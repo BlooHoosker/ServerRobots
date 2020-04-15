@@ -3,11 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="01ff71de-cfe2-4b67-8ba3-aaf80095789f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Server/com/company/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Server/com/company/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Server/com/company/NavigationAI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Server/com/company/NavigationAI.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Server/com/company/ServerThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Server/com/company/ServerThread.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Direction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Direction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/NavigationAI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/NavigationAI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/ServerThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/ServerThread.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -75,7 +73,9 @@
       <workItem from="1586615990623" duration="558000" />
       <workItem from="1586725827012" duration="4914000" />
       <workItem from="1586739453014" duration="253000" />
-      <workItem from="1586905414998" duration="295000" />
+      <workItem from="1586905414998" duration="2643000" />
+      <workItem from="1586909238387" duration="588000" />
+      <workItem from="1586953204192" duration="636000" />
     </task>
     <servers />
   </component>
@@ -87,22 +87,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="739" y="261" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1586024672831" />
-    <state width="1877" height="180" key="GridCell.Tab.0.bottom" timestamp="1586731342408">
+    <state width="1877" height="180" key="GridCell.Tab.0.bottom" timestamp="1586953488441">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="180" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1586731342408" />
-    <state width="1877" height="180" key="GridCell.Tab.0.center" timestamp="1586731342408">
+    <state width="1877" height="180" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1586953488441" />
+    <state width="1877" height="180" key="GridCell.Tab.0.center" timestamp="1586953488441">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="180" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1586731342408" />
-    <state width="1877" height="180" key="GridCell.Tab.0.left" timestamp="1586731342407">
+    <state width="1877" height="180" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1586953488441" />
+    <state width="1877" height="180" key="GridCell.Tab.0.left" timestamp="1586953488441">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="180" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1586731342407" />
-    <state width="1877" height="180" key="GridCell.Tab.0.right" timestamp="1586731342408">
+    <state width="1877" height="180" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1586953488441" />
+    <state width="1877" height="180" key="GridCell.Tab.0.right" timestamp="1586953488441">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="180" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1586731342408" />
+    <state width="1877" height="180" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1586953488441" />
     <state width="914" height="256" key="GridCell.Tab.1.bottom" timestamp="1586389985600">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -119,10 +119,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="914" height="256" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1586389985600" />
-    <state x="1136" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1586905415032">
+    <state x="1136" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1586953204181">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1136" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1586905415032" />
+    <state x="1136" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1586953204181" />
     <state x="609" y="135" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1586202244434">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -135,16 +135,5 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1586209905523" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/company/NavigationAI.java</url>
-          <line>78</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
