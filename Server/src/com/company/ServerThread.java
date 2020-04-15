@@ -160,13 +160,6 @@ public class ServerThread extends Thread {
                 }
                 // Optimisation, if the last two chars arent \a\b then returns syntax error
                 if ((i == length - 1 && charRead != '\u0007') || (i == length && charRead != '\b') ){
-                    System.out.println(response.toString());
-                    for (int p = 0; p < response.toString().length(); p++){
-                        int a =  response.toString().charAt(p);
-                        System.out.print(a +" ");
-                    }
-                    System.out.println();
-                    System.out.println("Opti Fail ===============================================================");
                     break;
                 }
             }
@@ -175,6 +168,7 @@ public class ServerThread extends Thread {
             return new Pair<>("", 2);
         } catch (IOException e){
             System.out.println("CommandToBuffer IO exception");
+            e.printStackTrace();
             return new Pair<>("", -1);
         }
 
