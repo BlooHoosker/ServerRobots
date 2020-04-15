@@ -1,0 +1,42 @@
+Client connected
+Robot connecting to server.
+Robot name: rV g$+;-
+Robot: rV g$+;- logged in
+CommandToBuffer IO exception
+java.net.SocketException: Software v hostitelském počítači ukončil vytvořené připojení
+        at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:325)
+        at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:350)
+        at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:803)
+        at java.base/java.net.Socket$SocketInputStream.read(Socket.java:982)
+        at java.base/sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:297)
+        at java.base/sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:339)
+        at java.base/sun.nio.cs.StreamDecoder.read(StreamDecoder.java:188)
+        at java.base/java.io.InputStreamReader.read(InputStreamReader.java:181)
+        at java.base/java.io.BufferedReader.fill(BufferedReader.java:161)
+        at java.base/java.io.BufferedReader.read(BufferedReader.java:182)
+        at com.company.ServerThread.CommandFromBuffer(ServerThread.java:148)
+        at com.company.ServerThread.GetCommand(ServerThread.java:181)
+        at com.company.ServerThread.ReceiveCoordinates(ServerThread.java:199)
+        at com.company.ServerThread.serverStart(ServerThread.java:335)
+        at com.company.Main.main(Main.java:20)
+Client connected
+Robot connecting to server.
+Robot name: rV g$+;-
+Robot: rV g$+;- logged in
+CommandToBuffer IO exception
+java.net.SocketException: Software v hostitelském počítači ukončil vytvořené připojení
+        at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:325)
+        at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:350)
+        at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:803)
+        at java.base/java.net.Socket$SocketInputStream.read(Socket.java:982)
+        at java.base/sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:297)
+        at java.base/sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:339)
+        at java.base/sun.nio.cs.StreamDecoder.read(StreamDecoder.java:188)
+        at java.base/java.io.InputStreamReader.read(InputStreamReader.java:181)
+        at java.base/java.io.BufferedReader.fill(BufferedReader.java:161)
+        at java.base/java.io.BufferedReader.read(BufferedReader.java:182)
+        at com.company.ServerThread.CommandFromBuffer(ServerThread.java:148)
+        at com.company.ServerThread.GetCommand(ServerThread.java:181)
+        at com.company.ServerThread.ReceiveCoordinates(ServerThread.java:199)
+        at com.company.ServerThread.serverStart(ServerThread.java:335)
+        at com.company.Main.main(Main.java:20)
